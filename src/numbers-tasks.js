@@ -1,4 +1,3 @@
-/* eslint-disable no-else-return */
 /* *******************************************************************************************
  *                                                                                           *
  * Please read the following tutorial before implementing tasks:                              *
@@ -279,9 +278,11 @@ function getFibonacciNumber(index) {
 
   if (index === 0) {
     return 0;
-  } else if (index === 1) {
+  }
+  if (index === 1) {
     return 1;
-  } else {
+  }
+  if (index > 1) {
     for (let i = 0; i < index - 1; i += 1) {
       res = first + second;
       first = second;
@@ -304,9 +305,8 @@ function getFibonacciNumber(index) {
  */
 function getSumToN(n) {
   let result = 0;
-  while (n) {
-    // eslint-disable-next-line no-plusplus, no-param-reassign
-    result += n--;
+  for (let i = 1; i <= n; i += 1) {
+    result += i;
   }
   return result;
 }
@@ -340,8 +340,7 @@ function getSumOfDigits(num) {
  *   15  => false
  */
 function isPowerOfTwo(num) {
-  // eslint-disable-next-line no-bitwise
-  return num && (num & (num - 1)) === 0;
+  return num > 0 && Math.log2(num) % 1 === 0;
 }
 
 /**
